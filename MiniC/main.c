@@ -7,7 +7,7 @@ extern FILE *yyin;
 int main( int argc, char *argv[]){
     int token;
     if(argc != 2){
-        printf("Uso: %S fichero\n",argv[0]);
+        printf("Uso: %s fichero\n",argv[0]);
     }
     yyin = fopen(argv[1], "r");
     if(yyin ==NULL){

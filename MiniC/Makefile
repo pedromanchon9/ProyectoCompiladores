@@ -1,5 +1,5 @@
-miniC : miniC.tab.c main.c lex.yy.c  listaSimbolos.c listaSimbolos.h
-	gcc miniC.tab.c main.c lex.yy.c listaSimbolos.c -lfl -o miniC
+miniC : miniC.tab.c main.c lex.yy.c  listaSimbolos.c listaCodigo.c
+	gcc miniC.tab.c main.c lex.yy.c listaSimbolos.c -lfl listaCodigo -o miniC
 
 lex.yy.c : miniC.l miniC.tab.h
 	flex miniC.l

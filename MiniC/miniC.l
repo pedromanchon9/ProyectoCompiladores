@@ -3,8 +3,6 @@
 
     #include <stdio.h>
     #include <stdlib.h>
-    #include "calculadora.h"
-
 
 %}
 
@@ -42,17 +40,16 @@ panico [^a-zA-Z_0-9(); \n\t\r+\-*/={},]+
 
 
  /*Expresiones regulares de Tokens. Importante dejar espacio antes del comentario*/
-"print"         { return PRIN; }
+"print"         { return PRINT; }
 "void"          { return VOID; }
 "var"           { return VAR;  }
-"const"         { return CONS; }
+"const"         { return CONST; }
 "int"           { return INT;  }
 "if"            { return IF;  }
 "else"          { return ELSE; }
-"while"         { return WHIL; }
+"while"         { return WHILE; }
 "read"          { return READ; }
 
-/*Definimos un identificador*/
 {L}({L}|{D})*   { 
                     if(yyleng > MAX_ID) {
                         printf("Error en la linea %d: identificador demasiado largo %s\n",
@@ -65,17 +62,17 @@ panico [^a-zA-Z_0-9(); \n\t\r+\-*/={},]+
 
 "="             { return IGU; }
 ";"             { return PYC; }
-"+"             { return MAS; }
-"-"             { return MEN; }
-"*"             { return POR; }
+"+"             { return SUM; }
+"-"             { return REST; }
+"*"             { return MUL; }
 "/"             { return DIV; }
 "("             { return PAI; }
 ")"             { return PAD; }
 "{"             { return LLI; }
 "}"             { return LLD; }
-","             { return COM; }
+","             { return COMA; }
 
-/**/
+
 {D}+            { 
                     if(atol(yytext)>=MAX_INT){      /*ascii to long*/
                         printf("Error en linea %d: entero demasiado grande %s\n",
