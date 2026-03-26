@@ -1,8 +1,8 @@
-#include stdlib.h
-#include stdio.h
+#include <stdlib.h>
+#include <stdio.h>
 extern int yyparse();
 extern int errores;
-extern FILE *YYIN;
+extern FILE *yyin;
 
 int main( int argc, char *argv[]){
     int token;
