@@ -1,0 +1,13 @@
+main() {
+    //Comentario
+    x = 2*3-5;
+    //Más comentarios
+
+    /* comentarios  
+        lineas*/
+    y= 2*x;
+    ##!
+
+    print(y, "Hola \"amigos\"");
+    print(y, " ");
+}

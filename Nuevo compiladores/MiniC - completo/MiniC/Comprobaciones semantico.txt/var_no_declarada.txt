@@ -1,0 +1,6 @@
+void main () {
+    const int x= 10;
+    x = 20;
+    print("holaaaa", y);
+
+}

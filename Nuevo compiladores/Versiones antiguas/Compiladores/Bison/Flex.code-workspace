@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../Flex"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../MiniC"
+		}
+	],
+	"settings": {}
+}

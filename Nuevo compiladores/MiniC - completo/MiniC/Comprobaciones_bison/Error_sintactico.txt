@@ -1,0 +1,10 @@
+void main () {
+    var int x = ;
+    var int t = 2;
+    while { 
+        t+2;
+        else{
+            
+        }
+    }
+}

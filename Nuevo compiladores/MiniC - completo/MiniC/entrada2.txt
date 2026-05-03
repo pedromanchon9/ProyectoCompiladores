@@ -1,0 +1,22 @@
+int leer (int fe) {
+
+    while(fe){
+
+        print(fe);
+        print("restantes \n");
+        fe = fe-1;
+    }
+    fe = fe+5;
+    return fe;
+
+
+}
+
+void main() {
+    const int a = 20;
+    var int res = 10;
+    var int ler = leer(res);
+    ler=ler+a;
+    print("Resultado: ", ler, "\n");
+
+}

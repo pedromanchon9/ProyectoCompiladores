@@ -1,0 +1,4 @@
+void main() {
+
+    var int c = 5+2-2;
+}

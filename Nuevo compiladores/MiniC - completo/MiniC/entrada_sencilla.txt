@@ -1,0 +1,31 @@
+void main() {
+
+    const int limite = 5;
+    var int contador;
+    var int calculo;
+
+    print("--- INICIO DE LA PRUEBA BASICA ---\n");
+    print("Introduce un numero para el contador: ");
+    read(contador);
+
+    if (contador) {
+        print("Has introducido un numero distinto de cero.\n");
+        calculo = contador * 2;
+    } else {
+        print("Has introducido un cero. Ajustando valor...\n");
+        contador = 1;
+        calculo = contador + 10;
+    }
+
+    print("El valor del calculo es: ", calculo, "\n");
+
+    // 4. Prueba de bucles (while) y actualizacion de variables
+    print("Iniciando secuencia de conteo hasta el limite...\n");
+    
+    while (limite - contador) { 
+        print("Ejecutando bucle... contador = ", contador, "\n");
+        contador = contador + 1;
+    }
+
+    print("--- FIN DEL PROGRAMA ---\n");
+}

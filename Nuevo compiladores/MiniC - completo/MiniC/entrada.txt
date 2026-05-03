@@ -1,0 +1,43 @@
+int leer (int fe, int moscas ,int red) {
+
+    const int g = 0;
+    var int a3 = 3;
+    fe = red * moscas;
+    return moscas;
+
+}
+
+void mega (int na, int f) {
+    var int gue = 0;
+    var int man = 2;
+    var int a = 4;
+    var int bern = 2;
+    man = 4*2;
+    if(gue) {
+        if(man){
+            a = gue * 3;
+        }else{
+            man = 3*2;
+        }
+    }
+    do{
+        man = man+1;
+    }while(man)
+}
+
+void main() {
+ const int a = 0, b = 0;
+ print ("Inicio del programa\n");
+ var int c = 5+2-2;
+ var int alb = leer(c,b,a);
+ var int tar = 5;
+ if (a) { print ("a","\n");
+ }else if (b) print ("No a y b\n");
+ else while (c) {
+ print ("c = ",c,"\n");
+ tar = leer(a,b,alb);
+ print(tar);
+ c = c-2+1;
+ }
+print ("Final","\n");
+}

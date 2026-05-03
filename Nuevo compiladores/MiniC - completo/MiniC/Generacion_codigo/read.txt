@@ -1,0 +1,4 @@
+void main () {
+    var int a = 1;
+    read(a);
+}

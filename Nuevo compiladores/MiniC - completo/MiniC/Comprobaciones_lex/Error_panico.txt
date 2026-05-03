@@ -1,0 +1,6 @@
+void main(){
+
+    var int x@=5;
+    const int g!=4;
+    var int r& = 10;
+}

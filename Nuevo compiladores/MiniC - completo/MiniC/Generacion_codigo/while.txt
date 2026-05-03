@@ -1,0 +1,8 @@
+void main () {
+    var int a = 1;
+    while(a){
+    
+        a=a+1;
+
+    }
+}

@@ -1,0 +1,355 @@
+Gramática
+
+    0 $accept: s $end
+
+    1 $@1: %empty
+
+    2 s: $@1 l
+
+    3 l: a ";"
+    4  | l a ";"
+    5  | error ";"
+
+    6 a: "register" "=" e
+
+    7 e: e "+" e
+    8  | e "-" e
+    9  | e "*" e
+   10  | e "/" e
+   11  | "number"
+   12  | "register"
+   13  | "(" e ")"
+   14  | "-" e
+
+
+Terminales con las reglas donde aparecen
+
+    $end (0) 0
+    error (256) 5
+    "+" (258) 7
+    "-" (259) 8 14
+    "*" (260) 9
+    "/" (261) 10
+    "number" <num> (262) 11
+    "(" (263) 13
+    ")" (264) 13
+    ";" (265) 3 4 5
+    "=" (266) 6
+    "register" <reg> (267) 6 12
+
+
+No terminales con las reglas donde aparecen
+
+    $accept (13)
+        on left: 0
+    s (14)
+        on left: 2
+        on right: 0
+    $@1 (15)
+        on left: 1
+        on right: 2
+    l (16)
+        on left: 3 4 5
+        on right: 2 4
+    a (17)
+        on left: 6
+        on right: 3 4
+    e <num> (18)
+        on left: 7 8 9 10 11 12 13 14
+        on right: 6 7 8 9 10 13 14
+
+
+Estado 0
+
+    0 $accept: . s $end
+
+    $default  reduce usando la regla 1 ($@1)
+
+    s    ir al estado 1
+    $@1  ir al estado 2
+
+
+Estado 1
+
+    0 $accept: s . $end
+
+    $end  desplazar e ir al estado 3
+
+
+Estado 2
+
+    2 s: $@1 . l
+
+    error       desplazar e ir al estado 4
+    "register"  desplazar e ir al estado 5
+
+    l  ir al estado 6
+    a  ir al estado 7
+
+
+Estado 3
+
+    0 $accept: s $end .
+
+    $default  aceptar
+
+
+Estado 4
+
+    5 l: error . ";"
+
+    ";"  desplazar e ir al estado 8
+
+
+Estado 5
+
+    6 a: "register" . "=" e
+
+    "="  desplazar e ir al estado 9
+
+
+Estado 6
+
+    2 s: $@1 l .
+    4 l: l . a ";"
+
+    "register"  desplazar e ir al estado 5
+
+    $default  reduce usando la regla 2 (s)
+
+    a  ir al estado 10
+
+
+Estado 7
+
+    3 l: a . ";"
+
+    ";"  desplazar e ir al estado 11
+
+
+Estado 8
+
+    5 l: error ";" .
+
+    $default  reduce usando la regla 5 (l)
+
+
+Estado 9
+
+    6 a: "register" "=" . e
+
+    "-"         desplazar e ir al estado 12
+    "number"    desplazar e ir al estado 13
+    "("         desplazar e ir al estado 14
+    "register"  desplazar e ir al estado 15
+
+    e  ir al estado 16
+
+
+Estado 10
+
+    4 l: l a . ";"
+
+    ";"  desplazar e ir al estado 17
+
+
+Estado 11
+
+    3 l: a ";" .
+
+    $default  reduce usando la regla 3 (l)
+
+
+Estado 12
+
+   14 e: "-" . e
+
+    "-"         desplazar e ir al estado 12
+    "number"    desplazar e ir al estado 13
+    "("         desplazar e ir al estado 14
+    "register"  desplazar e ir al estado 15
+
+    e  ir al estado 18
+
+
+Estado 13
+
+   11 e: "number" .
+
+    $default  reduce usando la regla 11 (e)
+
+
+Estado 14
+
+   13 e: "(" . e ")"
+
+    "-"         desplazar e ir al estado 12
+    "number"    desplazar e ir al estado 13
+    "("         desplazar e ir al estado 14
+    "register"  desplazar e ir al estado 15
+
+    e  ir al estado 19
+
+
+Estado 15
+
+   12 e: "register" .
+
+    $default  reduce usando la regla 12 (e)
+
+
+Estado 16
+
+    6 a: "register" "=" e .
+    7 e: e . "+" e
+    8  | e . "-" e
+    9  | e . "*" e
+   10  | e . "/" e
+
+    "+"  desplazar e ir al estado 20
+    "-"  desplazar e ir al estado 21
+    "*"  desplazar e ir al estado 22
+    "/"  desplazar e ir al estado 23
+
+    $default  reduce usando la regla 6 (a)
+
+
+Estado 17
+
+    4 l: l a ";" .
+
+    $default  reduce usando la regla 4 (l)
+
+
+Estado 18
+
+    7 e: e . "+" e
+    8  | e . "-" e
+    9  | e . "*" e
+   10  | e . "/" e
+   14  | "-" e .
+
+    "*"  desplazar e ir al estado 22
+    "/"  desplazar e ir al estado 23
+
+    $default  reduce usando la regla 14 (e)
+
+
+Estado 19
+
+    7 e: e . "+" e
+    8  | e . "-" e
+    9  | e . "*" e
+   10  | e . "/" e
+   13  | "(" e . ")"
+
+    "+"  desplazar e ir al estado 20
+    "-"  desplazar e ir al estado 21
+    "*"  desplazar e ir al estado 22
+    "/"  desplazar e ir al estado 23
+    ")"  desplazar e ir al estado 24
+
+
+Estado 20
+
+    7 e: e "+" . e
+
+    "-"         desplazar e ir al estado 12
+    "number"    desplazar e ir al estado 13
+    "("         desplazar e ir al estado 14
+    "register"  desplazar e ir al estado 15
+
+    e  ir al estado 25
+
+
+Estado 21
+
+    8 e: e "-" . e
+
+    "-"         desplazar e ir al estado 12
+    "number"    desplazar e ir al estado 13
+    "("         desplazar e ir al estado 14
+    "register"  desplazar e ir al estado 15
+
+    e  ir al estado 26
+
+
+Estado 22
+
+    9 e: e "*" . e
+
+    "-"         desplazar e ir al estado 12
+    "number"    desplazar e ir al estado 13
+    "("         desplazar e ir al estado 14
+    "register"  desplazar e ir al estado 15
+
+    e  ir al estado 27
+
+
+Estado 23
+
+   10 e: e "/" . e
+
+    "-"         desplazar e ir al estado 12
+    "number"    desplazar e ir al estado 13
+    "("         desplazar e ir al estado 14
+    "register"  desplazar e ir al estado 15
+
+    e  ir al estado 28
+
+
+Estado 24
+
+   13 e: "(" e ")" .
+
+    $default  reduce usando la regla 13 (e)
+
+
+Estado 25
+
+    7 e: e . "+" e
+    7  | e "+" e .
+    8  | e . "-" e
+    9  | e . "*" e
+   10  | e . "/" e
+
+    "*"  desplazar e ir al estado 22
+    "/"  desplazar e ir al estado 23
+
+    $default  reduce usando la regla 7 (e)
+
+
+Estado 26
+
+    7 e: e . "+" e
+    8  | e . "-" e
+    8  | e "-" e .
+    9  | e . "*" e
+   10  | e . "/" e
+
+    "*"  desplazar e ir al estado 22
+    "/"  desplazar e ir al estado 23
+
+    $default  reduce usando la regla 8 (e)
+
+
+Estado 27
+
+    7 e: e . "+" e
+    8  | e . "-" e
+    9  | e . "*" e
+    9  | e "*" e .
+   10  | e . "/" e
+
+    $default  reduce usando la regla 9 (e)
+
+
+Estado 28
+
+    7 e: e . "+" e
+    8  | e . "-" e
+    9  | e . "*" e
+   10  | e . "/" e
+   10  | e "/" e .
+
+    $default  reduce usando la regla 10 (e)

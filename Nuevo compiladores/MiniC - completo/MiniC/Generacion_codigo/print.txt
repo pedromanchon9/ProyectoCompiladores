@@ -1,0 +1,6 @@
+void main () {
+    var int a = 1;
+    print(a);
+
+    print("hola esto es un print");
+}

@@ -1,0 +1,8 @@
+void main() {
+    var int a = 1;
+    var int b = 2;
+    while (a) {
+        b = b + 1;
+        a = a - 1;
+    }
+}
